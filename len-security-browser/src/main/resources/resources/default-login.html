@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Please Log In</title>
+</head>
+<body>
+<h1>Please Log In</h1>
+<div th:if="${param.error}">
+    Invalid username and password.</div>
+<div th:if="${param.logout}">
+    You have been logged out.</div>
+<form action="/authentication/form" method="post">
+    <div>
+        <input type="text" name="username" placeholder="Username"/>
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="Password"/>
+    </div>
+    <div>
+        <span style="display: inline">
+            <input type="text" name="imageCode" placeholder="验证码"/>
+            <img src="/code/image?width=150"/>
+        </span>
+    </div>
+    <div>
+        <span style="display: inline">
+            <input type="checkbox" name="remember-me">记住我</span>
+        </span>
+    </div>
+    <input type="submit" value="Log in" />
+</form>
+
+<h2>短信登录</h2>
+<form action="/authentication/mobile" method="post">
+    <div>
+        <input type="text" name="mobile" placeholder="mobile" value="13789056789"/>
+    </div>
+    <div>
+        <span style="display: inline">
+            <input type="text" name="smsCode" placeholder="短信验证码"/>
+            <a href="/code/sms?mobile=13789056789">获取验证码</a>
+        </span>
+    </div>
+    <input type="submit" value="Log in" />
+</form>
+</body>
+</html>

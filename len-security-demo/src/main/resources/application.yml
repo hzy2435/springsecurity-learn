@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///security-demo?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  session:
+    store-type: none
+len:
+  security:
+    browser:
+      loginType: JSON
+      #loginUrl: /demo-login.html
+    code:
+      image:
+        length: 4
+        width: 100
+        urls: /user/*
